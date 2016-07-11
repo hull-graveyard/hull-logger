@@ -77,7 +77,7 @@ export default class Entry extends Component {
         {this.renderTimeStamp()}
       </div>
       <h4 className='mt-0 mb-0'>
-        <span className='log-title'>{this.props.event}</span>
+        <span className='log-title'>{this.props.event} - {this.props.message.user.name || this.props.message.user.email || 'Unknown User'}</span>
         {this.renderUpdate()}
         {this.renderChanges()}
         {this.renderEvents()}
