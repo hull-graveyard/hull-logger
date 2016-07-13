@@ -1,21 +1,13 @@
 {
   "name": "Logger",
   "description": "Log updates passing through Hull",
-  "tags": ["outgoing"],
+  "tags": ["outgoing", "oneColumn"],
   "picture": "picture.png",
   "ui": false,
   "admin": "admin.html",
   "readme" : "readme.md",
   "version": "0.0.1",
-  "private_settings": [
-    {
-      "name" : "sentry_dsn",
-      "title" : "Sentry DSN",
-      "description" : "URL of a sentry instance to collect logs and exception notifications",
-      "type" : "string",
-      "format" : "hidden"
-    }
-  ],
+  "private_settings": [],
   "resources": [],
   "subscriptions" : [ { "url" : "/notify" } ]
 }
