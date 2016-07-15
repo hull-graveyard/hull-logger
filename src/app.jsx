@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Entry from "./log";
+import Entry from "./entry";
+import Sidebar from "./sidebar";
 import _ from "lodash";
 
 export default class App extends Component {
@@ -29,15 +30,22 @@ export default class App extends Component {
     }
   }
 
-  renderLog() {
-    return (_.reverse(this.state.log) || []).map((entry = {}, i) => {
-      return <Entry {...entry} key={`log-${i}`}/>;
+  handleSelectLog = i => this.props.engine.selectLog(i);
+
+  renderEntries() {
+    return (this.state.log || []).map((entry = {}, i) => {
+      return <Entry {...entry} onShowEntry={this.handleSelectLog.bind(undefined, i)} key={`log-${i}`}/>;
     });
   }
   render() {
-    return <div className="container">
-      <h5>Logger</h5>
-      {this.renderLog()}
+    return <div className="container-fluid">
+      <h3 className='text-muted uppercase mt-1'>Logger</h3>
+      <div className="row">
+        <div className="col-sm-5">{this.renderEntries()}</div>
+        <div className="col-sm-7">
+          <Sidebar {...this.state.current}/>
+        </div>
+      </div>
     </div>;
   }
 }

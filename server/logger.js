@@ -1,6 +1,8 @@
 import getShipLog from "./ship-logs";
 
-module.exports = function handle(event, { timestamp, message = {} }, { hull }) {
+module.exports = function handle(event, msg, { hull }) {
+  const { timestamp, message = {} } = msg;
+  console.log(timestamp);
   try {
     const { id, secret } = hull.configuration() || {};
     if (id && secret) {
