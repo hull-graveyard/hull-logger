@@ -38,8 +38,7 @@ export default class App extends Component {
     });
   }
   render() {
-    return <div className="container-fluid">
-      <h3 className='text-muted uppercase mt-1'>Logger</h3>
+    return <div className="container-fluid pt-1">
       <div className="row">
         <div className="col-sm-5">{this.renderEntries()}</div>
         <div className="col-sm-7">
